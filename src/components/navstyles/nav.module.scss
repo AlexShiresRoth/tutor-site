@@ -1,5 +1,24 @@
+@import '../../../sass/variables';
+
 .nav {
 	background: transparent;
 	z-index: 9999;
 	position: absolute;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items: center;
+	width:100%;
+	& a {
+		color: $brand-text;
+		text-decoration: none;
+		font-family: 'Public Sans',sans-serif;
+	}
 }
+.nav__right{
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	gap:1rem;
+}
+
+
