@@ -21,9 +21,15 @@ const Header = () => {
         <h2>Willy Williams Tutoring</h2>
       </div>
       <div className={headerStyles.services__grid}>
-        <div className={headerStyles.item}>In Person Tutoring</div>
-        <div className={headerStyles.item}>Virtual Tutoring</div>
-        <div className={headerStyles.item}>Video Conference</div>
+        <div className={headerStyles.item}>
+          <p>In Person Tutoring</p>
+        </div>
+        <div className={headerStyles.item}>
+          <p>Virtual Tutoring</p>
+        </div>
+        <div className={headerStyles.item}>
+          <p>Video Conference</p>
+        </div>
       </div>
     </header>
   )

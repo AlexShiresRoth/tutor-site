@@ -5,3 +5,6 @@ body {
   margin: 0;
   box-sizing: border-box;
   overflow-x: hidden; }
+
+p {
+  font-family: 'Public Sans', sans-serif; }
