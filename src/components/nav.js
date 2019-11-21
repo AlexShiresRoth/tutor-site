@@ -12,7 +12,7 @@ const Nav = ({ siteTitle }) => (
 					src={
 						"https://res.cloudinary.com/snackmanproductions/image/upload/v1574282613/tutoring-site/logo_transparent_background_ewr81c.png"
 					}
-					style={{ width: "12rem" }}
+					className={navStyles.logo}
 				/>
 			</Link>
 		</div>

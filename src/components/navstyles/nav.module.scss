@@ -19,8 +19,41 @@
 .nav__left {
 	margin-left: 1rem;
 }
+.logo {
+	width: 12rem;
+}
 .nav__right {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
+}
+
+@media screen and (max-width: 700px) {
+	.nav {
+		background: transparent;
+		z-index: 9999;
+		position: absolute;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		min-height: 3rem;
+		& a {
+			color: $brand-text;
+			text-decoration: none;
+			font-family: "Public Sans", sans-serif;
+		}
+	}
+	.nav__left {
+		margin-left: 1rem;
+	}
+	.nav__right {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+	.logo {
+		width: 7rem;
+	}
 }

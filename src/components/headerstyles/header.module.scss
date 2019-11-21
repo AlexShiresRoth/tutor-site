@@ -134,31 +134,32 @@
 			align-items: center;
 			opacity: 0.8;
 			transition: all 0.4s ease-in-out;
-			height: 5rem;
 			align-self: flex-end;
+			height: 4rem;
 			max-height: 10rem;
 			& svg {
 				font-size: 1.5rem;
 				transition: 0.4s ease-in-out;
 			}
 			& p {
-				font-size: 0.9rem;
+				font-size: 0.8rem;
+				margin: 0;
 			}
 			& ul {
 				& li {
-					font-size: 0.9rem;
+					font-size: 0.8rem;
 					font-family: "Public Sans", sans-serif, serif;
 				}
 			}
 			&:hover svg {
-				font-size: 2rem;
+				font-size: 1.7rem;
 			}
 			&:hover p {
-				font-size: 0.9rem;
+				font-size: 0.8rem;
 			}
 			&:hover ul {
 				& li {
-					font-size: 0.9rem;
+					font-size: 0.8rem;
 				}
 			}
 		}
