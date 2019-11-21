@@ -1,24 +1,26 @@
-@import '../../../sass/variables';
+@import "../../../sass/variables";
 
 .nav {
 	background: transparent;
 	z-index: 9999;
 	position: absolute;
-	display:flex;
-	flex-direction:row;
-	justify-content:space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 	align-items: center;
-	width:100%;
+	width: 100%;
+	min-height: 5rem;
 	& a {
 		color: $brand-text;
 		text-decoration: none;
-		font-family: 'Public Sans',sans-serif;
+		font-family: "Public Sans", sans-serif;
 	}
 }
-.nav__right{
-	display: grid;
-	grid-template-columns: repeat(2,1fr);
-	gap:1rem;
+.nav__left {
+	margin-left: 1rem;
 }
-
-
+.nav__right {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}

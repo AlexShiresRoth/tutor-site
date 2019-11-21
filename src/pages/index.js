@@ -1,14 +1,16 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { memo } from "react"
+import { cold } from "react-hot-loader"
 import Header from "../components/header"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Header />
-  </Layout>
-)
+const IndexPage = () => {
+	return (
+		<Layout>
+			<SEO title="Home" />
+			<Header />
+		</Layout>
+	)
+}
 
-export default IndexPage
+export default memo(IndexPage)

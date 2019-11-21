@@ -7,6 +7,7 @@ const services = props => {
 	return (
 		<Layout>
 			<SEO title="Services" />
+			<h1>services</h1>
 		</Layout>
 	)
 }

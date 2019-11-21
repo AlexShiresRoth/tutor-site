@@ -6,7 +6,8 @@ import SEO from "../components/seo"
 const about = props => {
 	return (
 		<Layout>
-			<SEO title="Home" />
+			<SEO title="About" />
+			<h1>About</h1>
 		</Layout>
 	)
 }
