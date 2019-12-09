@@ -1,181 +1,198 @@
 @import "../../../sass/variables";
 
 .header {
-	max-height: 100vh;
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	background-color: #557a95;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 100 100'%3E%3Cg stroke='%237395ae' stroke-width='7.5' stroke-opacity='0.15'%3E%3Crect fill='%237395ae' x='-60' y='-60' width='61' height='240'/%3E%3C/g%3E%3C/svg%3E");
-	position: relative;
+  max-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #557a95;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 100 100'%3E%3Cg stroke='%237395ae' stroke-width='7.5' stroke-opacity='0.15'%3E%3Crect fill='%237395ae' x='-60' y='-60' width='61' height='240'/%3E%3C/g%3E%3C/svg%3E");
+  position: relative;
 }
 
 .text__box {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	& h1 {
-		font-family: "EB Garamond", sans-serif;
-		color: $brand-text;
-		font-size: 4rem;
-		margin: 1rem 0;
-	}
-	& h2 {
-		color: darken($brand-text, 10%);
-		font-size: 3rem;
-		font-family: "Tangerine", sans-serif;
-	}
-	& .divider {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		width: 40vw;
-		color: $brand-brown;
-		& svg {
-			font-size: 2rem;
-			margin: 0 0.5rem;
-		}
-		& span {
-			height: 0.2rem;
-			width: 10vw;
-			background: $brand-accent;
-		}
-	}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & h1 {
+    font-family: "EB Garamond", sans-serif;
+    color: $brand-text;
+    font-size: 4rem;
+    margin: 1rem 0;
+  }
+  & h2 {
+    color: darken($brand-text, 10%);
+    font-size: 3rem;
+    font-family: "Tangerine", sans-serif;
+  }
+  & .divider {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    color: $brand-brown;
+    & svg {
+      font-size: 2rem;
+      margin: 0 0.5rem;
+    }
+    & span {
+      height: 0.2rem;
+      width: 10vw;
+      background: $brand-accent;
+    }
+  }
 }
 
 .services__grid {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	max-height: 10rem;
-	& .item {
-		color: $brand-text;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 7rem;
-		opacity: 0.8;
-		max-height: 20rem;
-		& svg {
-			font-size: 2rem;
-			transition: 0.4s ease-in-out;
-		}
-		& ul {
-			& li {
-				font-size: 1rem;
-				font-family: "Public Sans", sans-serif, serif;
-			}
-		}
-		&:hover svg {
-			font-size: 3.5rem;
-		}
-		&:hover p {
-			font-size: 1.2rem;
-		}
-		&:hover ul {
-			& li {
-				font-size: 1.2rem;
-			}
-		}
-		&:nth-child(1) {
-			background: $brand-brown;
-			transition: all 0.4s ease-in-out;
-			align-self: flex-end;
-			&:hover {
-				height: 15rem;
-				cursor: pointer;
-			}
-		}
-		&:nth-child(2) {
-			background: $brand-blue;
-			transition: all 0.4s ease-in-out;
-			align-self: flex-end;
-			&:hover {
-				height: 15rem;
-				cursor: pointer;
-			}
-		}
-		&:nth-child(3) {
-			background: $brand-accent;
-			transition: all 0.4s ease-in-out;
-			align-self: flex-end;
-			&:hover {
-				height: 15rem;
-				cursor: pointer;
-			}
-		}
-	}
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 10rem;
+  & .item {
+    color: $brand-text;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 7rem;
+    opacity: 0.8;
+    max-height: 20rem;
+    & svg {
+      font-size: 2rem;
+      transition: 0.4s ease-in-out;
+    }
+    & ul {
+      & li {
+        list-style: none;
+        font-size: 1rem;
+        font-family: "Public Sans", sans-serif, serif;
+      }
+      & li > svg {
+        font-size: 1rem;
+        transition: all 0.4s ease-in-out;
+      }
+    }
+    &:hover svg {
+      font-size: 3.5rem;
+    }
+    &:hover li > svg {
+      font-size: 1.2rem;
+      margin-right: 0.3rem;
+    }
+    &:hover p {
+      font-size: 1.2rem;
+    }
+    &:hover ul {
+      & li {
+        font-size: 1.2rem;
+      }
+    }
+    &:nth-child(1) {
+      background: $brand-brown;
+      transition: all 0.4s ease-in-out;
+      align-self: flex-end;
+      &:hover {
+        height: 15rem;
+        cursor: pointer;
+        background: lighter($brand-brown, 5%);
+      }
+      & li {
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+      }
+      &:hover li {
+        opacity: 1;
+      }
+    }
+    &:nth-child(2) {
+      background: $brand-blue;
+      transition: all 0.4s ease-in-out;
+      align-self: flex-end;
+      &:hover {
+        height: 15rem;
+        cursor: pointer;
+      }
+    }
+    &:nth-child(3) {
+      background: $brand-accent;
+      transition: all 0.4s ease-in-out;
+      align-self: flex-end;
+      &:hover {
+        height: 15rem;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 700px) {
-	.header {
-		max-height: 90vh;
-		height: 90vh;
-	}
-	.services__grid {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		max-height: 100rem;
-		& .item {
-			color: $brand-text;
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			opacity: 0.8;
-			transition: all 0.4s ease-in-out;
-			align-self: flex-end;
-			height: 4rem;
-			max-height: 10rem;
-			& svg {
-				font-size: 1.5rem;
-				transition: 0.4s ease-in-out;
-			}
-			& p {
-				font-size: 0.8rem;
-				margin: 0;
-			}
-			& ul {
-				& li {
-					font-size: 0.8rem;
-					font-family: "Public Sans", sans-serif, serif;
-				}
-			}
-			&:hover svg {
-				font-size: 1.7rem;
-			}
-			&:hover p {
-				font-size: 0.8rem;
-			}
-			&:hover ul {
-				& li {
-					font-size: 0.8rem;
-				}
-			}
-		}
-	}
-	.text__box {
-		& h1 {
-			text-align: center;
-			font-size: 2rem;
-			margin: 1rem;
-		}
-		& h2 {
-			font-size: 2rem;
-		}
-	}
+  .header {
+    max-height: 90vh;
+    height: 90vh;
+  }
+  .services__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 100rem;
+    & .item {
+      color: $brand-text;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.8;
+      transition: all 0.4s ease-in-out;
+      align-self: flex-end;
+      height: 4rem;
+      max-height: 10rem;
+      & svg {
+        font-size: 1.5rem;
+        transition: 0.4s ease-in-out;
+      }
+      & p {
+        font-size: 0.8rem;
+        margin: 0;
+      }
+      & ul {
+        & li {
+          font-size: 0.8rem;
+          font-family: "Public Sans", sans-serif, serif;
+        }
+      }
+      &:hover svg {
+        font-size: 1.7rem;
+      }
+      &:hover p {
+        font-size: 0.8rem;
+      }
+      &:hover ul {
+        & li {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  .text__box {
+    & h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 1rem;
+    }
+    & h2 {
+      font-size: 2rem;
+    }
+  }
 }

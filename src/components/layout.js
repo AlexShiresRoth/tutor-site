@@ -11,29 +11,30 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import "../stylesheets/style.css"
 import Nav from "./nav"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
-	const data = useStaticQuery(graphql`
-		query SiteTitleQuery {
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`)
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
-	return (
-		<>
-			<Nav siteTitle={data.site.siteMetadata.title} />
-			<main>{children}</main>
-			<footer>©The Clerk of Oxford</footer>
-		</>
-	)
+  return (
+    <>
+      <Nav siteTitle={data.site.siteMetadata.title} />
+      <main>{children}</main>
+      <Footer siteTitle={data.site.siteMetadata.title} />
+    </>
+  )
 }
 
 Layout.propTypes = {
-	children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

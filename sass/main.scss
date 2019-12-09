@@ -1,14 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Public+Sans|Tangerine&display=swap");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Raleway|Tangerine&display=swap");
 
-@import './variables';
+@import "./variables";
 
 html,
 body {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
-p{
-	font-family: 'Public Sans', sans-serif;
+a,
+h3,
+p {
+  font-family: "Raleway", sans-serif;
 }
