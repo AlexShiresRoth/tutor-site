@@ -31,3 +31,39 @@
     padding: 0.2rem 0;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    align-content: center;
+    width: 100vw;
+    background: darken($brand-blue, 5%);
+    padding: 0rem;
+    font-size: 75%;
+    & p {
+      color: $brand-text;
+    }
+    & a {
+      text-decoration: none;
+      color: lighten($brand-blue, 15%);
+    }
+    & span {
+      font-family: "Raleway", sans-serif;
+      color: $brand-text;
+    }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & h3 {
+      color: $brand-text;
+      border-bottom: 1px solid lighten($brand-blue, 5%);
+      padding: 0.2rem 0;
+    }
+  }
+}
