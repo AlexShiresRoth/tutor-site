@@ -20,15 +20,15 @@ class Header extends React.Component {
       <ul>
         <li>
           <MdDoneAll />
-          One on One
+          <p>One on One</p>
         </li>
         <li>
           <MdDoneAll />
-          In Person Tutoring
+          <p>In Person Tutoring</p>
         </li>
         <li>
           <MdDoneAll />
-          For one hour or idk
+          <p>For one hour or idk</p>
         </li>
       </ul>
     )
@@ -37,15 +37,15 @@ class Header extends React.Component {
       <ul>
         <li>
           <MdDoneAll />
-          Meet Online at your convenience
+          <p>Meet Online at your convenience</p>
         </li>
         <li>
           <MdDoneAll />
-          Virtually connect with Zoom
+          <p>Virtually connect with Zoom</p>
         </li>
         <li>
           <MdDoneAll />
-          For one hour or idk
+          <p>For one hour or idk</p>
         </li>
       </ul>
     )
@@ -54,15 +54,15 @@ class Header extends React.Component {
       <ul>
         <li>
           <MdDoneAll />
-          Meet Online at your convenience
+          <p> Meet Online at your convenience</p>
         </li>
         <li>
           <MdDoneAll />
-          Virtually connect with Zoom
+          <p>Virtually connect with Zoom</p>
         </li>
         <li>
           <MdDoneAll />
-          For one hour or idk
+          <p>For one hour or idk</p>
         </li>
       </ul>
     )
