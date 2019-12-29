@@ -26,8 +26,8 @@ const AboutHeader = props => {
     <header className={aboutStyles.header}>
       <div className={aboutStyles.about__container}>
         <div className={aboutStyles.title__container}>
-          <h1>What is</h1>
-          <p>The Clerk Of Oxford Company?</p>
+          <h1>About</h1>
+          <p>The Clerk of Oxford Company</p>
         </div>
         <div className={aboutStyles.info__container}>
           <div className={aboutStyles.photo__container}>{aboutImg}</div>

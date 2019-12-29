@@ -19,6 +19,8 @@
     position: relative;
     z-index: 4;
     margin: 2rem 0;
+    opacity: 0;
+    animation: fadein 0.6s linear forwards;
     & h1 {
       font-family: "Tangerine", Verdana, Geneva, Tahoma, sans-serif;
       color: $brand-brown;
@@ -28,7 +30,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      min-width: 25rem;
+      min-width: 27rem;
       &::before {
         content: "";
         width: 7rem;
@@ -62,6 +64,8 @@
     z-index: 2;
     background: $brand-accent;
     padding: 1rem;
+    box-shadow: 0 4px 4px darken($brand-blue, 5%);
+    animation: slideinfromleft 0.6s linear forwards;
     & img {
       box-shadow: 0 4px 4px darken($brand-blue, 5%);
       max-width: 20rem;
@@ -74,13 +78,67 @@
     align-items: center;
     max-width: 25rem;
     background: darken($brand-blue, 5%);
-    padding: 5rem;
+    box-shadow: 0 4px 4px darken($brand-blue, 10%);
+    padding: 4rem;
     position: absolute;
     transform: translate(19rem, 2rem);
+    opacity: 0;
+    animation: slideinfromright 0.6s linear forwards;
     z-index: 0;
     & p {
       color: $brand-text;
       line-height: 2;
+
+      &::after {
+        content: "";
+        width: 6rem;
+        height: 0.2rem;
+        background: $brand-brown;
+        display: block;
+        margin: 1rem 0;
+      }
     }
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideinfromright {
+  0% {
+    opacity: 0;
+    transform: translate(20vw, 20vh);
+  }
+  90% {
+    opacity: 0.5;
+    transform: translate(15rem, 4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(20rem, 2rem);
+  }
+}
+
+@keyframes slideinfromleft {
+  0% {
+    opacity: 0;
+    transform: translate(-20vw, 20vh);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(2rem, 2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0rem);
   }
 }
