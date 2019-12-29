@@ -1,16 +1,18 @@
 @import "../../../sass/variables";
 
 .nav {
-  background: transparent;
+  background: darken($brand-blue, 5%);
   z-index: 9999;
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  min-height: 5rem;
+  min-height: 4rem;
+  box-shadow: 0 2px 2px darken($brand-blue, 7%);
   & a {
+    font-size: 1.1rem;
     color: $brand-text;
     text-decoration: none;
     font-family: "Public Sans", sans-serif;
@@ -20,12 +22,13 @@
   margin-left: 1rem;
 }
 .logo {
-  width: 12rem;
+  width: 5rem;
 }
 .nav__right {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  margin-right: 1rem;
 }
 
 @media screen and (max-width: 700px) {

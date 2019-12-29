@@ -85,7 +85,7 @@ class Header extends React.Component {
             onMouseLeave={() => this.setState({ inperson: false })}
           >
             <FiUsers />
-            <p>In Person Tutoring</p>
+            <h3>In Person Tutoring</h3>
             {this.state.inperson ? inPersonHover : null}
           </div>
           <div
@@ -94,7 +94,7 @@ class Header extends React.Component {
             onMouseLeave={() => this.setState({ virtual: false })}
           >
             <TiDeviceLaptop />
-            <p>Virtual Tutoring</p>
+            <h3>Virtual Tutoring</h3>
             {this.state.virtual ? virtualHover : null}
           </div>
           <div
@@ -103,7 +103,7 @@ class Header extends React.Component {
             onMouseLeave={() => this.setState({ video: false })}
           >
             <FiVideo />
-            <p>Video Conference</p>
+            <h3>Video Conference</h3>
             {this.state.video ? videoHover : null}
           </div>
         </div>

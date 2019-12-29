@@ -64,9 +64,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 7rem;
+    height: 8rem;
     opacity: 0.8;
     max-height: 20rem;
+
+    & h3 {
+      font-family: "Eb Garamond", serif, sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.9px;
+    }
 
     &:nth-child(1) {
       background: $brand-brown;
@@ -90,7 +96,7 @@
       & ul {
         font-size: 0rem;
         opacity: 0;
-        transition: all 0.5s ease-in-out;
+        animation: fadein 0.5s linear forwards;
         & li {
           list-style: none;
           display: flex;
@@ -99,7 +105,6 @@
           & p {
             margin: 0 0.5rem;
             opacity: 0;
-            transition: all 0.5s ease-in-out;
           }
         }
       }
@@ -133,7 +138,7 @@
       & ul {
         font-size: 0rem;
         opacity: 0;
-        transition: all 0.5s ease-in-out;
+        animation: fadein 0.5s linear forwards;
         & li {
           list-style: none;
           display: flex;
@@ -142,7 +147,6 @@
           & p {
             margin: 0 0.5rem;
             opacity: 0;
-            transition: all 0.5s ease-in-out;
           }
         }
       }
@@ -176,7 +180,7 @@
       & ul {
         font-size: 0rem;
         opacity: 0;
-        transition: all 0.5s ease-in-out;
+        animation: fadein 0.5s linear forwards;
         & li {
           list-style: none;
           display: flex;
@@ -185,7 +189,6 @@
           & p {
             margin: 0 0.5rem;
             opacity: 0;
-            transition: all 0.5s ease-in-out;
           }
         }
       }
@@ -259,5 +262,16 @@
     & h2 {
       font-size: 2rem;
     }
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    font-size: 0;
+  }
+  100% {
+    opacity: 1;
+    font-size: 100%;
   }
 }

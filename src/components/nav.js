@@ -114,8 +114,8 @@ class Nav extends React.Component {
           </Link>
         </div>
         <div className={navStyles.nav__right}>
-          <Link to="/services/">Services</Link>
           <Link to="/about/">About</Link>
+          <Link to="/services/">Services</Link>
         </div>
       </nav>
     )
