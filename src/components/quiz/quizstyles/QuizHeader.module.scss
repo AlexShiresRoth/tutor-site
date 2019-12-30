@@ -154,6 +154,10 @@
           color: $brand-brown;
         }
       }
+      & .active{
+        background: darken($brand-blue, 20%);
+        box-shadow: 0 2px 2px darken($brand-blue, 20%);
+      }
     }
   }
 }

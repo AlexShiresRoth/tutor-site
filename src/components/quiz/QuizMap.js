@@ -16,12 +16,19 @@ class QuizMap extends React.Component {
     }
   }
 
-  getAnswer = e => {
-    //figure out how to match
+  setAnswerState = e => {
+    //add selected state to answer
     e.persist()
-    e.target.childNodes[0].classList.contains("input-radio")
+    e.target.childNodes[0].type === "radio"
       ? (e.target.childNodes[0].checked = true)
       : (e.target.parentNode.childNodes[0].checked = true)
+
+    const inputs = [...e.target.parentNode.childNodes]
+
+    inputs
+      .filter((input, i) => input.checked)
+      .map(node => node.parentNode.classList.add(this.props.quizStyles.active))
+
     const name = e.target.childNodes[0].name
       ? e.target.childNodes[0].name
       : e.target.parentNode.childNodes[0].name
@@ -66,15 +73,14 @@ class QuizMap extends React.Component {
               return (
                 <div
                   className={quizStyles.input__row}
-                  onClick={e => this.getAnswer(e)}
+                  onClick={e => this.setAnswerState(e)}
                 >
                   <input
                     type="radio"
                     name={ques.name}
                     value={choice.qNum}
-                    className="input-radio"
                   ></input>
-                  <label for="answer" className="label">
+                  <label for="answer">
                     {choice.qNum}: {choice.ans}
                   </label>
                 </div>
