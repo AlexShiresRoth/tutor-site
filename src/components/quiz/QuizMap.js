@@ -17,11 +17,11 @@ class QuizMap extends React.Component {
   }
 
   getAnswer = e => {
+    //figure out how to match
     e.persist()
-    e.target.childNodes[0]
+    e.target.childNodes[0].classList.contains("input-radio")
       ? (e.target.childNodes[0].checked = true)
       : (e.target.parentNode.childNodes[0].checked = true)
-
     const name = e.target.childNodes[0].name
       ? e.target.childNodes[0].name
       : e.target.parentNode.childNodes[0].name
@@ -53,6 +53,7 @@ class QuizMap extends React.Component {
         <div className={quizStyles.question}>
           <div className={quizStyles.question__num}>
             <p>Question {ques.num}</p>
+            <button>Next</button>
           </div>
           <div className={quizStyles.question__question}>
             <p>{ques.question}</p>
@@ -71,8 +72,9 @@ class QuizMap extends React.Component {
                     type="radio"
                     name={ques.name}
                     value={choice.qNum}
+                    className="input-radio"
                   ></input>
-                  <label for="answer">
+                  <label for="answer" className="label">
                     {choice.qNum}: {choice.ans}
                   </label>
                 </div>

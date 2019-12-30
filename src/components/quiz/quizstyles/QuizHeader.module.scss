@@ -1,7 +1,7 @@
 @import "../../../../sass/variables";
 
 .header {
-  min-height: 100vh;
+  min-height: 120vh;
   background: $brand-blue;
   display: flex;
   flex-direction: column;
@@ -84,10 +84,13 @@
       visibility: hidden;
     }
     & .question {
-      min-width: 50vw;
+      min-width: 45vw;
       margin: 2rem;
     }
     & .question__num {
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
       & p {
         color: $brand-text;
         font-size: 1.2rem;
