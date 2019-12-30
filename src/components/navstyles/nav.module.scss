@@ -1,7 +1,7 @@
 @import "../../../sass/variables";
 
 .nav {
-  background: darken($brand-blue, 5%);
+  background: $brand-blue;
   z-index: 9999;
   position: fixed;
   display: flex;
@@ -26,15 +26,15 @@
 }
 .nav__right {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-right: 1rem;
+  justify-items: center;
 }
 
 @media screen and (max-width: 700px) {
   .nav {
     z-index: 9999;
-    position: absolute;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;

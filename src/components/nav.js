@@ -44,6 +44,12 @@ class Nav extends React.Component {
           <li>
             <Link to="/services">Services</Link>
           </li>
+          <li>
+            <Link to="/quiz/">Quiz</Link>
+          </li>
+          <li>
+            <Link to="/resources/">Resources</Link>
+          </li>
         </ul>
       </div>
     )
@@ -116,6 +122,8 @@ class Nav extends React.Component {
         <div className={navStyles.nav__right}>
           <Link to="/about/">About</Link>
           <Link to="/services/">Services</Link>
+          <Link to="/quiz/">Quiz</Link>
+          <Link to="/resources/">Resources</Link>
         </div>
       </nav>
     )
