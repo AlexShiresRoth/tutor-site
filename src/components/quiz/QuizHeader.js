@@ -11,7 +11,6 @@ const QuizHeader = props => {
       </div>
       <div className={quizStyles.quiz__container}>
         <QuizMap quiz={quiz} quizStyles={quizStyles} />
-        <button disabled>Submit Answers</button>
       </div>
     </header>
   )
