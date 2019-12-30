@@ -28,7 +28,6 @@
 .nav__right {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
   margin-right: 1rem;
   justify-items: center;
   align-content: center;
@@ -49,7 +48,7 @@
       transition: all 0.4s ease-in-out;
       position: absolute;
       top: 100%;
-      align-self:center;
+      align-self: center;
     }
     &:hover {
       cursor: pointer;
