@@ -45,7 +45,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  max-width: 50vw;
+  max-width: 50rem;
   background: darken($brand-blue, 5%);
   & button {
     margin-top: 1rem;
@@ -93,7 +93,7 @@
   & .quiz {
     display: flex;
     flex-direction: row;
-    max-width: 50vw;
+    max-width: 50rem;
     overflow-x: auto;
     transition: all 0.4s ease-in-out;
     &::-webkit-scrollbar {
@@ -102,8 +102,10 @@
       visibility: hidden;
     }
     & .question {
-      min-width: 45vw;
-      margin: 2rem;
+      min-width: 50rem;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
     }
     & .question__num {
       display: flex;

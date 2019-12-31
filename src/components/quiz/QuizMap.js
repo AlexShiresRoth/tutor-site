@@ -75,10 +75,9 @@ class QuizMap extends React.Component {
         (this.quizRef.current.scrollLeft +=
           this.quizRef.current.getBoundingClientRect().width / 60)
       )
-
       this.animRef = requestAnimationFrame(this.scrollToNextQuestion)
     }
-    if (this.frameCount > 60) {
+    if (this.frameCount >= 60) {
       this.frameCount = 0
       cancelAnimationFrame(this.animRef)
     }
