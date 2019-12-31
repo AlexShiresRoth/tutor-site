@@ -45,6 +45,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  min-width: 50rem;
   max-width: 50rem;
   background: darken($brand-blue, 5%);
   & button {
@@ -76,41 +77,53 @@
   & .progress__bar {
     width: 100%;
     height: 1rem;
-    border-radius: 15px;
     display: block;
     background: $brand-accent;
     margin: 1rem 0;
     transition: all 0.3s ease-in-out;
     box-shadow: inset 0 4px 4px darken($brand-accent, 5%);
     & .progress__bar__fill {
-      border-radius: 15px;
-      background: green;
+      background: repeating-linear-gradient(
+        70deg,
+        #2ac22a,
+        #2ac22a 20px,
+        $brand-accent 20px,
+        $brand-accent 25px
+      );
       width: 0%;
       height: 100%;
       transition: all 0.3s ease-in-out;
+      animation: spin 1s linear infinite;
+      background-size: 100px 100px;
     }
   }
   & .quiz {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     max-width: 50rem;
-    overflow-x: auto;
+    overflow: hidden;
     transition: all 0.4s ease-in-out;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     &::-webkit-scrollbar {
       height: 0;
       width: 0;
       visibility: hidden;
     }
     & .question {
+      scroll-snap-align: start;
       min-width: 50rem;
-      display:flex;
+      display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
     }
     & .question__num {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      width: 90%;
       & p {
         color: $brand-text;
         font-size: 1.2rem;
@@ -146,8 +159,8 @@
       display: grid;
       grid-template-rows: repeat(4, 1fr);
       gap: 0.5rem;
+      width: 92%;
       & .input__row {
-        width: 90%;
         background: darken($brand-blue, 15%);
         padding: 0.5rem;
         transition: all 0.4s ease-in-out;
@@ -162,7 +175,7 @@
         & label {
           color: $brand-accent;
           font-family: "Raleway", sans-serif, serif;
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           display: inline-block;
         }
         & input[type="radio"] {
@@ -179,5 +192,21 @@
         box-shadow: 0 2px 2px darken($brand-blue, 20%);
       }
     }
+  }
+}
+
+@keyframes spin {
+  0% {
+    box-shadow: 0 0 0 transparent;
+    background-position: 30px 0px;
+  }
+  50% {
+    background-position: 60px 00px;
+
+    box-shadow: 0 0px 15px #2ac22a;
+  }
+  100% {
+    background-position: 30px 0px;
+    box-shadow: 0 0 0 transparent;
   }
 }

@@ -22,8 +22,6 @@ class QuizMap extends React.Component {
     this.animRef = React.createRef()
   }
 
-  frameCount = 0
-
   setAnswerState = e => {
     //add selected state to answer
     e.persist()
@@ -69,19 +67,14 @@ class QuizMap extends React.Component {
   }
 
   scrollToNextQuestion = time => {
-    this.frameCount++
     if (this.quizRef.current) {
-      this.quizRef.current.scrollLeft = Math.round(
-        (this.quizRef.current.scrollLeft +=
-          this.quizRef.current.getBoundingClientRect().width / 60)
-      )
+      this.quizRef.current.scrollLeft = this.quizRef.current.scrollLeft += this.quizRef.current.getBoundingClientRect().width
+
       this.animRef = requestAnimationFrame(this.scrollToNextQuestion)
     }
-    if (this.frameCount >= 60) {
-      this.frameCount = 0
-      cancelAnimationFrame(this.animRef)
-    }
-    console.log(this.quizRef.current.scroll)
+    cancelAnimationFrame(this.animRef)
+
+    console.log(this.quizRef.current.style)
   }
 
   componentDidMount() {
