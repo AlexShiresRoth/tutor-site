@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-//TODO add a progress bar for quiz
 //TODO add a timer for quiz
+//scroll by width of question ref, need to create an array
 //TODO add a slide to next question feature
 //TODO add an answer check
 //TODO add an instruction modal which will start quiz
@@ -16,10 +16,15 @@ class QuizMap extends React.Component {
       activeIndex: null,
       progressBar: 0,
       questions: null,
+      frameCount: 0,
     }
+    this.quizRef = React.createRef()
+    this.animRef = React.createRef()
   }
 
-  setAnswerState = (e, index) => {
+  frameCount = 0
+
+  setAnswerState = e => {
     //add selected state to answer
     e.persist()
 
@@ -57,6 +62,29 @@ class QuizMap extends React.Component {
     })
   }
 
+  setCurrentIndex = () => {
+    this.setState(prevState => ({
+      currentQuestionIndex: (prevState.currentQuestionIndex += 1),
+    }))
+  }
+
+  scrollToNextQuestion = time => {
+    this.frameCount++
+    if (this.quizRef.current) {
+      this.quizRef.current.scrollLeft = Math.round(
+        (this.quizRef.current.scrollLeft +=
+          this.quizRef.current.getBoundingClientRect().width / 60)
+      )
+
+      this.animRef = requestAnimationFrame(this.scrollToNextQuestion)
+    }
+    if (this.frameCount > 60) {
+      this.frameCount = 0
+      cancelAnimationFrame(this.animRef)
+    }
+    console.log(this.quizRef.current.scroll)
+  }
+
   componentDidMount() {
     const { quiz } = this.props
     this.setState({
@@ -70,18 +98,24 @@ class QuizMap extends React.Component {
         progressBar: (this.state.answers.length / this.state.questions) * 100,
       })
     }
+    cancelAnimationFrame(this.animRef)
   }
 
   render() {
-    console.log(this.state)
     const { quiz, quizStyles } = this.props
+    const { answers, currentQuestionIndex, activeIndex } = this.state
 
     const quizMap = quiz.map((ques, i) => {
       return (
-        <div className={quizStyles.question}>
+        <div className={quizStyles.question} key={i}>
           <div className={quizStyles.question__num}>
             <p>Question {ques.num}</p>
-            <button>Next</button>
+            <button
+              onClick={e => this.scrollToNextQuestion(e)}
+              disabled={i === currentQuestionIndex}
+            >
+              Next
+            </button>
           </div>
           <div className={quizStyles.question__question}>
             <p>{ques.question}</p>
@@ -90,17 +124,18 @@ class QuizMap extends React.Component {
             <p>{ques.problem}</p>
           </div>
           <form className={quizStyles.choices}>
-            {ques.choices.map((choice, i) => {
+            {ques.choices.map((choice, index) => {
               return (
                 <div
                   className={`${quizStyles.input__row} ${
-                    this.state.activeIndex === i ? quizStyles.active : ""
+                    activeIndex === index ? quizStyles.active : ""
                   }`}
                   onClick={e => {
                     this.setAnswerState(e)
-                    this.setActiveState(e, i)
+                    this.setActiveState(e, index)
+                    this.setCurrentIndex(i)
                   }}
-                  key={i}
+                  key={index}
                 >
                   <input
                     type="radio"
@@ -126,8 +161,12 @@ class QuizMap extends React.Component {
             style={{ width: `${this.state.progressBar}%` }}
           ></div>
         </div>
-        <div className={quizStyles.quiz}>{quizMap}</div>
-        <button disabled>Submit Answers</button>
+        <div className={quizStyles.quiz} ref={this.quizRef}>
+          {quizMap}
+        </div>
+        <button disabled={this.state.progressBar !== 100}>
+          Submit Answers
+        </button>
       </>
     )
   }
