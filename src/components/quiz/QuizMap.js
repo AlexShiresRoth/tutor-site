@@ -2,9 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 
 //TODO add a timer for quiz
-//scroll by width of question ref, need to create an array
-//TODO add a slide to next question feature
 //TODO add an answer check
+//TODO add show results
 //TODO add an instruction modal which will start quiz
 
 class QuizMap extends React.Component {
@@ -77,6 +76,20 @@ class QuizMap extends React.Component {
     console.log(this.quizRef.current.style)
   }
 
+  checkAnswers = () => {
+    const { quiz } = this.props
+    const { answers } = this.state
+    const correct = quiz.map(ques => ques.answer)
+    const choice = answers.map((ques, i) => Object.values(ques)[0])
+    const matches = correct.filter((answer, i) => answer === choice[i])
+    this.getPercentageCorrect(matches.length, quiz.length)
+  }
+
+  getPercentageCorrect = (matches, quiz) => {
+    console.log(((matches / quiz) * 100).toFixed(2))
+    return ((matches / quiz) * 100).toFixed(2)
+  }
+
   componentDidMount() {
     const { quiz } = this.props
     this.setState({
@@ -102,6 +115,7 @@ class QuizMap extends React.Component {
         <div className={quizStyles.question} key={i}>
           <div className={quizStyles.question__num}>
             <p>Question {ques.num}</p>
+            <span>Time: 10:00</span>
             <button
               onClick={e => this.scrollToNextQuestion(e)}
               disabled={i === currentQuestionIndex}
@@ -156,7 +170,10 @@ class QuizMap extends React.Component {
         <div className={quizStyles.quiz} ref={this.quizRef}>
           {quizMap}
         </div>
-        <button disabled={this.state.progressBar !== 100}>
+        <button
+          disabled={this.state.progressBar !== 100}
+          onClick={e => this.checkAnswers(e)}
+        >
           Submit Answers
         </button>
       </>

@@ -92,9 +92,9 @@
       );
       width: 0%;
       height: 100%;
+      background-size: 30px 30px;
       transition: all 0.3s ease-in-out;
       animation: spin 1s linear infinite;
-      background-size: 100px 100px;
     }
   }
   & .quiz {
@@ -137,6 +137,11 @@
           background: $brand-brown;
           margin: 0.2rem 0;
         }
+      }
+      & span {
+        align-self: center;
+        color: $brand-text;
+        font-family: "Raleway", sans-serif, serif;
       }
     }
     & .question__question {
@@ -201,12 +206,10 @@
     background-position: 30px 0px;
   }
   50% {
-    background-position: 60px 00px;
-
     box-shadow: 0 0px 15px #2ac22a;
   }
   100% {
-    background-position: 30px 0px;
+    background-position: 60px 00px;
     box-shadow: 0 0 0 transparent;
   }
 }
