@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-
+import Choices from "./Choices"
+import ResultsDisplay from "./ResultsDisplay"
 //TODO add a timer for quiz
 //TODO add an answer check
 //TODO add show results
@@ -16,9 +17,15 @@ class QuizMap extends React.Component {
       progressBar: 0,
       questions: null,
       frameCount: 0,
+      loading: true,
+      finished: false,
+      results: "",
     }
     this.quizRef = React.createRef()
     this.animRef = React.createRef()
+    this.setActiveState = this.setActiveState.bind(this)
+    this.setCurrentIndex = this.setCurrentIndex.bind(this)
+    this.setAnswerState = this.setAnswerState.bind(this)
   }
 
   setAnswerState = e => {
@@ -65,15 +72,13 @@ class QuizMap extends React.Component {
     }))
   }
 
-  scrollToNextQuestion = time => {
+  scrollToNextQuestion = () => {
     if (this.quizRef.current) {
       this.quizRef.current.scrollLeft = this.quizRef.current.scrollLeft += this.quizRef.current.getBoundingClientRect().width
 
       this.animRef = requestAnimationFrame(this.scrollToNextQuestion)
     }
     cancelAnimationFrame(this.animRef)
-
-    console.log(this.quizRef.current.style)
   }
 
   checkAnswers = () => {
@@ -82,18 +87,31 @@ class QuizMap extends React.Component {
     const correct = quiz.map(ques => ques.answer)
     const choice = answers.map((ques, i) => Object.values(ques)[0])
     const matches = correct.filter((answer, i) => answer === choice[i])
+
     this.getPercentageCorrect(matches.length, quiz.length)
   }
 
   getPercentageCorrect = (matches, quiz) => {
-    console.log(((matches / quiz) * 100).toFixed(2))
-    return ((matches / quiz) * 100).toFixed(2)
+    const score = ((matches / quiz) * 100).toFixed(2).toString()
+    return this.setState({
+      results: score,
+    })
+  }
+
+  setQuizState = e => {
+    e.preventDefault()
+    this.checkAnswers()
+    return this.setState({
+      finished: true,
+    })
   }
 
   componentDidMount() {
     const { quiz } = this.props
     this.setState({
       questions: quiz.length,
+      loading: false,
+      finished: false,
     })
   }
 
@@ -108,7 +126,13 @@ class QuizMap extends React.Component {
 
   render() {
     const { quiz, quizStyles } = this.props
-    const { answers, currentQuestionIndex, activeIndex } = this.state
+    const {
+      currentQuestionIndex,
+      activeIndex,
+      results,
+      progressBar,
+      answers,
+    } = this.state
 
     const quizMap = quiz.map((ques, i) => {
       return (
@@ -116,12 +140,14 @@ class QuizMap extends React.Component {
           <div className={quizStyles.question__num}>
             <p>Question {ques.num}</p>
             <span>Time: 10:00</span>
-            <button
-              onClick={e => this.scrollToNextQuestion(e)}
-              disabled={i === currentQuestionIndex}
-            >
-              Next
-            </button>
+            {progressBar !== 100 ? (
+              <button
+                onClick={e => this.scrollToNextQuestion(e)}
+                disabled={i === currentQuestionIndex}
+              >
+                Next
+              </button>
+            ) : null}
           </div>
           <div className={quizStyles.question__question}>
             <p>{ques.question}</p>
@@ -130,36 +156,24 @@ class QuizMap extends React.Component {
             <p>{ques.problem}</p>
           </div>
           <form className={quizStyles.choices}>
-            {ques.choices.map((choice, index) => {
-              return (
-                <div
-                  className={`${quizStyles.input__row} ${
-                    activeIndex === index ? quizStyles.active : ""
-                  }`}
-                  onClick={e => {
-                    this.setAnswerState(e)
-                    this.setActiveState(e, index)
-                    this.setCurrentIndex(i)
-                  }}
-                  key={index}
-                >
-                  <input
-                    type="radio"
-                    name={ques.name}
-                    value={choice.qNum}
-                  ></input>
-                  <label for={choice.qNum}>
-                    {choice.qNum}: {choice.ans}
-                  </label>
-                </div>
-              )
-            })}
+            <Choices
+              choices={ques.choices}
+              activeIndex={activeIndex}
+              quizStyles={quizStyles}
+              ques={ques}
+              i={i}
+              setActiveState={this.setActiveState}
+              setAnswerState={this.setAnswerState}
+              setCurrentIndex={this.setCurrentIndex}
+            />
           </form>
         </div>
       )
     })
 
-    return (
+    return this.state.loading ? (
+      <div>Loading...</div>
+    ) : (
       <>
         <div className={quizStyles.progress__bar}>
           <div
@@ -168,11 +182,20 @@ class QuizMap extends React.Component {
           ></div>
         </div>
         <div className={quizStyles.quiz} ref={this.quizRef}>
-          {quizMap}
+          {this.state.finished ? (
+            <ResultsDisplay
+              quizStyles={quizStyles}
+              results={results}
+              quiz={quiz}
+              answers={answers}
+            />
+          ) : (
+            quizMap
+          )}
         </div>
         <button
           disabled={this.state.progressBar !== 100}
-          onClick={e => this.checkAnswers(e)}
+          onClick={e => this.setQuizState(e)}
         >
           Submit Answers
         </button>
