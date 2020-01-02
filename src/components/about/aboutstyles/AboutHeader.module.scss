@@ -112,6 +112,12 @@
   }
 }
 
+@media screen and (max-width: 1600px) {
+  .header {
+    min-height: 120vh;
+  }
+}
+
 @media screen and (max-width: 1500px) {
   .about__container {
     & .photo__container {

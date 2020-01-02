@@ -45,8 +45,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-width: 50rem;
-  max-width: 50rem;
+  min-width: 50vw;
+  max-width: 50vw;
   background: darken($brand-blue, 5%);
   & button {
     margin-top: 1rem;
@@ -101,7 +101,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    max-width: 50rem;
+    max-width: 50vw;
     overflow: hidden;
     transition: all 0.4s ease-in-out;
     scroll-snap-type: x mandatory;
@@ -113,7 +113,7 @@
     }
     & .question {
       scroll-snap-align: start;
-      min-width: 50rem;
+      min-width: 50vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -195,6 +195,25 @@
       & .active {
         background: darken($brand-blue, 20%);
         box-shadow: 0 2px 2px darken($brand-blue, 20%);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .header {
+    min-height: 130vh;
+  }
+}
+@media screen and (max-width: 700px){
+  .quiz__container{
+    min-width:90vw;
+    max-width:90vw;
+    & .quiz {
+      min-width:90vw;
+      max-width:90vw;
+      & .question {
+        min-width:90vw;
       }
     }
   }
