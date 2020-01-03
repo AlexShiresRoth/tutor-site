@@ -20,21 +20,27 @@
   & h1 {
     font-family: "EB Garamond", sans-serif;
     color: $brand-text;
+    opacity: 0;
+    animation: fadeinheading 1s linear forwards;
     font-size: 4rem;
     margin: 1rem 0;
   }
   & h2 {
     color: darken($brand-text, 10%);
+    opacity: 0;
+    animation: fadeinheading 2s linear forwards;
     font-size: 3rem;
     font-family: "Tangerine", sans-serif;
   }
   & .divider {
+    opacity: 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 40vw;
     color: $brand-brown;
+    animation: fadeinheading 1.5s linear forwards;
     & svg {
       font-size: 2rem;
       margin: 0 0.5rem;
@@ -115,16 +121,22 @@
       background: $brand-brown;
       transition: all 0.4s ease-in-out;
       align-self: flex-end;
+      opacity: 0;
+      animation: fadeinheading 1s linear forwards;
     }
     &:nth-child(2) {
       background: $brand-blue;
       transition: all 0.4s ease-in-out;
       align-self: flex-end;
+      opacity: 0;
+      animation: fadeinheading 1s linear 0.5s forwards;
     }
     &:nth-child(3) {
       background: $brand-accent;
       transition: all 0.4s ease-in-out;
       align-self: flex-end;
+      opacity: 0;
+      animation: fadeinheading 1s linear 1s forwards;
     }
   }
 }
@@ -205,5 +217,17 @@
   100% {
     opacity: 1;
     font-size: 100%;
+  }
+}
+
+@keyframes fadeinheading {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
   }
 }

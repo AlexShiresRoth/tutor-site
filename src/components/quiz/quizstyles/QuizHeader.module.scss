@@ -2,6 +2,7 @@
 
 .header {
   min-height: 100vh;
+  padding: 4rem;
   background: $brand-blue;
   display: flex;
   flex-direction: column;
@@ -23,7 +24,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      min-width: 27rem;
+      min-width: 20vw;
       &::before {
         content: "";
         width: 7rem;
@@ -48,6 +49,7 @@
   min-width: 50vw;
   max-width: 50vw;
   background: darken($brand-blue, 5%);
+  box-shadow: 0 5px 5px darken($brand-blue, 10%);
   & button {
     margin-top: 1rem;
     padding: 1rem;
@@ -205,15 +207,15 @@
     min-height: 130vh;
   }
 }
-@media screen and (max-width: 700px){
-  .quiz__container{
-    min-width:90vw;
-    max-width:90vw;
+@media screen and (max-width: 700px) {
+  .quiz__container {
+    min-width: 90vw;
+    max-width: 90vw;
     & .quiz {
-      min-width:90vw;
-      max-width:90vw;
+      min-width: 90vw;
+      max-width: 90vw;
       & .question {
-        min-width:90vw;
+        min-width: 90vw;
       }
     }
   }

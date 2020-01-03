@@ -20,14 +20,14 @@ const ResultsDisplay = ({ results, quizStyles, quiz, answers }) => {
 
   return (
     <div className={quizStyles.results__container}>
-      <h1>{results}</h1>
+      <h1>{results}% Correct</h1>
       <div>{compareAnswers()}</div>
     </div>
   )
 }
 
 ResultsDisplay.propTypes = {
-  results: PropTypes.number.isRequired,
+  results: PropTypes.string.isRequired,
   quizStyles: PropTypes.object.isRequired,
   quiz: PropTypes.array.isRequired,
   answers: PropTypes.array.isRequired,
