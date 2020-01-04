@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import aboutStyles from "./aboutstyles/AboutHeader.module.scss"
+import aboutContent from "./AboutContent"
 
 const AboutHeader = props => {
   const aboutImg = (
@@ -9,19 +10,8 @@ const AboutHeader = props => {
       src="https://res.cloudinary.com/snackmanproductions/image/upload/v1577644109/tutoring-site/75380044_437957306866769_320459200855539712_n_lvvjzd.jpg"
     ></img>
   )
-  const aboutText = (
-    <>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
-    </>
-  )
+  const aboutText = <>{aboutContent()}</>
+
   return (
     <header className={aboutStyles.header}>
       <div className={aboutStyles.about__container}>
