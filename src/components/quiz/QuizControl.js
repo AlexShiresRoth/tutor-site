@@ -3,10 +3,6 @@ import PropTypes from "prop-types"
 import ResultsDisplay from "./ResultsDisplay"
 import StartQuiz from "./StartQuiz"
 import QuizMap from "./QuizMap"
-//TODO add a timer for quiz
-//TODO add an answer check
-//TODO add show results
-//TODO add an instruction modal which will start quiz
 
 class QuizControl extends React.Component {
   constructor(props) {
@@ -23,9 +19,11 @@ class QuizControl extends React.Component {
       start: false,
       results: "",
       time: 10,
+      intervalId: null,
     }
     this.quizRef = React.createRef()
     this.animRef = React.createRef()
+    this.handleTimer = this.handleTimer.bind(this)
     this.scrollToNextQuestion = this.scrollToNextQuestion.bind(this)
     this.setActiveState = this.setActiveState.bind(this)
     this.setCurrentIndex = this.setCurrentIndex.bind(this)
@@ -77,7 +75,6 @@ class QuizControl extends React.Component {
   }
 
   scrollToNextQuestion = () => {
-    clearInterval()
     this.setState({
       time: 10,
     })
@@ -115,7 +112,7 @@ class QuizControl extends React.Component {
   }
 
   restartQuiz = e => {
-    clearInterval()
+    clearInterval(this.state.intervalId)
     e.preventDefault()
     this.setState(prevState => ({
       finished: false,
@@ -126,23 +123,29 @@ class QuizControl extends React.Component {
       results: "",
       time: 10,
     }))
-    setInterval(() => {
+    let intervalId = setInterval(() => {
       this.handleTimer()
     }, 1000)
+
+    this.setState({ intervalId })
   }
 
   startQuiz = e => {
     e.preventDefault()
+
     this.setState({
       start: true,
     })
-    setInterval(() => {
+    let intervalId = setInterval(() => {
       this.handleTimer()
     }, 1000)
+    this.setState({
+      intervalId,
+    })
   }
 
   handleTimer = () => {
-    const { time, progressBar, currentQuestionIndex } = this.state
+    const { time, progressBar, currentQuestionIndex, intervalId } = this.state
     switch (true) {
       case time > 0:
         this.setState(prevState => ({
@@ -150,7 +153,6 @@ class QuizControl extends React.Component {
         }))
         break
       case time <= 0 && progressBar !== 100:
-        clearInterval()
         this.scrollToNextQuestion()
         this.setState(prevState => ({
           time: 10,
@@ -162,19 +164,21 @@ class QuizControl extends React.Component {
         }))
         break
       case progressBar >= 100:
-        clearInterval()
-        break
+        return clearInterval(intervalId)
       default:
-        return clearInterval()
+        return clearInterval(intervalId)
     }
   }
 
   componentDidMount() {
     const { quiz } = this.props
+    const { intervalId } = this.state
+    clearInterval(intervalId)
     this.setState({
       questions: quiz.length,
       loading: false,
       finished: false,
+      progressBar: 0,
     })
   }
 
@@ -184,7 +188,6 @@ class QuizControl extends React.Component {
         progressBar: (this.state.answers.length / this.state.questions) * 100,
       })
     }
-
     cancelAnimationFrame(this.animRef)
   }
 
@@ -200,7 +203,6 @@ class QuizControl extends React.Component {
       finished,
       time,
     } = this.state
-    console.log(this.state.answers)
     return !start ? (
       <StartQuiz startQuiz={this.startQuiz} />
     ) : (
