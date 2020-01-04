@@ -115,6 +115,7 @@ class QuizControl extends React.Component {
   }
 
   restartQuiz = e => {
+    clearInterval()
     e.preventDefault()
     this.setState(prevState => ({
       finished: false,
