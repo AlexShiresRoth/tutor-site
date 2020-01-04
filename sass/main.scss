@@ -10,7 +10,12 @@ body {
   overflow-x: hidden;
 }
 main {
-  min-height: 100vh;
+  min-height: 85vh;
+  background: $brand-blue;
+}
+footer {
+  min-height: 15vh;
+  background: darken($brand-blue, 5%);
 }
 a,
 h2,

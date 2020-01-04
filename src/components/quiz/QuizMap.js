@@ -12,20 +12,23 @@ const QuizMap = ({
   quiz,
   currentQuestionIndex,
   scrollToNextQuestion,
+  time,
 }) => {
   const quizMap = quiz.map((ques, i) => {
     return (
       <div className={quizStyles.question} key={i}>
         <div className={quizStyles.question__num}>
           <p>Question {ques.num}</p>
-          <span>Time: 10:00</span>
           {progressBar !== 100 ? (
-            <button
-              onClick={e => scrollToNextQuestion(e)}
-              disabled={i === currentQuestionIndex}
-            >
-              Next
-            </button>
+            <>
+              <span>Time: {time}s</span>
+              <button
+                onClick={e => scrollToNextQuestion(e)}
+                disabled={i === currentQuestionIndex}
+              >
+                Next
+              </button>
+            </>
           ) : null}
         </div>
         <div className={quizStyles.question__question}>

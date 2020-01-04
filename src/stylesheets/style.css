@@ -7,7 +7,12 @@ body {
   overflow-x: hidden; }
 
 main {
-  min-height: 100vh; }
+  min-height: 85vh;
+  background: #557a95; }
+
+footer {
+  min-height: 15vh;
+  background: #4c6d85; }
 
 a,
 h2,

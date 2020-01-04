@@ -1,7 +1,7 @@
 @import "../../../sass/variables";
 
 .nav {
-  background: $brand-brown;
+  background: $brand-blue;
   z-index: 9999;
   position: fixed;
   display: flex;
@@ -57,7 +57,7 @@
       visibility: visible;
       width: 100%;
       display: block;
-      background: $brand-blue;
+      background: $brand-brown;
     }
   }
 }
@@ -108,8 +108,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: $brand-brown;
-        box-shadow: 0 4px 4px darken($brand-brown, 20%);
+        background: $brand-blue;
+        box-shadow: 0 4px 4px darken($brand-blue, 20%);
         & .close__box {
           display: flex;
           width: 100%;
@@ -132,7 +132,7 @@
               list-style: none;
               padding: 1rem 0;
               text-align: center;
-              border-top: 1px solid lighten($brand-brown, 5%);
+              border-top: 1px solid lighten($brand-blue, 5%);
               transition: all 0.3s ease-in-out;
               &:hover {
                 cursor: pointer;
@@ -140,7 +140,7 @@
               }
             }
             & li:last-child {
-              border-bottom: 1px solid lighten($brand-brown, 5%);
+              border-bottom: 1px solid lighten($brand-blue, 5%);
             }
           }
         }

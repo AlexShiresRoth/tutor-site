@@ -1,12 +1,11 @@
 @import "../../../../sass/variables";
 
 .header {
-  min-height: 100vh;
   padding: 4rem;
   background: $brand-blue;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   & .title__container {
     display: flex;
@@ -87,8 +86,8 @@
     & .progress__bar__fill {
       background: repeating-linear-gradient(
         70deg,
-        #2ac22a,
-        #2ac22a 20px,
+        $success,
+        $success 20px,
         $brand-accent 20px,
         $brand-accent 25px
       );
@@ -202,11 +201,6 @@
   }
 }
 
-@media screen and (max-width: 1600px) {
-  .header {
-    min-height: 130vh;
-  }
-}
 @media screen and (max-width: 700px) {
   .quiz__container {
     min-width: 90vw;

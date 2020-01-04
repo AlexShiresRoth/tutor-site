@@ -22,6 +22,7 @@ class QuizControl extends React.Component {
       finished: false,
       start: false,
       results: "",
+      time: 10,
     }
     this.quizRef = React.createRef()
     this.animRef = React.createRef()
@@ -31,7 +32,6 @@ class QuizControl extends React.Component {
     this.setAnswerState = this.setAnswerState.bind(this)
     this.startQuiz = this.startQuiz.bind(this)
   }
-
   setAnswerState = e => {
     //add selected state to answer
     e.persist()
@@ -77,6 +77,10 @@ class QuizControl extends React.Component {
   }
 
   scrollToNextQuestion = () => {
+    clearInterval()
+    this.setState({
+      time: 10,
+    })
     if (this.quizRef.current) {
       this.quizRef.current.scrollLeft = this.quizRef.current.scrollLeft += this.quizRef.current.getBoundingClientRect().width
 
@@ -119,7 +123,11 @@ class QuizControl extends React.Component {
       currentQuestionIndex: 0,
       finished: false,
       results: "",
+      time: 10,
     }))
+    setInterval(() => {
+      this.handleTimer()
+    }, 1000)
   }
 
   startQuiz = e => {
@@ -127,6 +135,37 @@ class QuizControl extends React.Component {
     this.setState({
       start: true,
     })
+    setInterval(() => {
+      this.handleTimer()
+    }, 1000)
+  }
+
+  handleTimer = () => {
+    const { time, progressBar, currentQuestionIndex } = this.state
+    switch (true) {
+      case time > 0:
+        this.setState(prevState => ({
+          time: (prevState.time -= 1),
+        }))
+        break
+      case time <= 0 && progressBar !== 100:
+        clearInterval()
+        this.scrollToNextQuestion()
+        this.setState(prevState => ({
+          time: 10,
+          currentQuestionIndex: (prevState.currentQuestionIndex += 1),
+          answers: [
+            ...prevState.answers,
+            { [`answer${currentQuestionIndex + 1}`]: "" },
+          ],
+        }))
+        break
+      case progressBar >= 100:
+        clearInterval()
+        break
+      default:
+        return clearInterval()
+    }
   }
 
   componentDidMount() {
@@ -158,7 +197,9 @@ class QuizControl extends React.Component {
       answers,
       start,
       finished,
+      time,
     } = this.state
+    console.log(this.state.answers)
     return !start ? (
       <StartQuiz startQuiz={this.startQuiz} />
     ) : (
@@ -194,6 +235,7 @@ class QuizControl extends React.Component {
                 setAnswerState={this.setAnswerState}
                 setActiveState={this.setActiveState}
                 setCurrentIndex={this.setCurrentIndex}
+                time={time}
               />
             </div>
             <button

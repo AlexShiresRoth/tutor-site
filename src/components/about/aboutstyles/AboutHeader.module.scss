@@ -1,11 +1,9 @@
 @import "../../../../sass/variables";
 .header {
-  min-height: 100vh;
   padding: 4rem;
-  background: $brand-blue;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .about__container {
@@ -110,12 +108,6 @@
     & .about__text {
       left: 20vw;
     }
-  }
-}
-
-@media screen and (max-width: 1600px) {
-  .header {
-    min-height: 120vh;
   }
 }
 
