@@ -66,23 +66,42 @@
     background: $brand-brown;
     animation: slideinfromleft 0.8s linear forwards;
     width: 100%;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-around;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    & img {
-      max-width: 12rem;
+    
+    & figure {
+      display:flex;
+      flex-direction:column;
+      position:relative;
+      margin:0;
+      & img {
+        max-width: 12rem;
+      }
+      & figcaption {
+        position: absolute;
+        color: $brand-text;
+        background: $brand-blue;
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        padding:1rem;
+        min-width:8rem;
+        top:90%;
+        left:55%;
+      }
     }
     & p {
       margin: 1rem;
       font-size: 2rem;
       color: $brand-text;
-      font-family: 'EB Garamond', Garamond, serif, sans-serif;
+      font-family: "EB Garamond", Garamond, serif, sans-serif;
       &::after {
         content: "";
         width: 6rem;
         height: 0.2rem;
-        background: darken($brand-blue,5%);
+        background: darken($brand-blue, 5%);
         display: block;
         align-self: flex-end;
         margin: 1rem 0;
@@ -103,11 +122,11 @@
       color: $brand-text;
       line-height: 2;
       font-weight: 300;
-      width:80%;
-      font-family: 'EB Garamond', Garamond, serif;
-      font-size:1.3rem;
+      width: 80%;
+      font-family: "EB Garamond", Garamond, serif;
+      font-size: 1.3rem;
       &:nth-child(1) {
-        display:none;
+        display: none;
       }
       & strong {
         font-weight: 300;
@@ -118,7 +137,7 @@
         height: 0.2rem;
         background: $brand-brown;
         display: block;
-        align-self:flex-end;
+        align-self: flex-end;
         margin: 1rem 0;
       }
     }
@@ -154,8 +173,8 @@
   }
 }
 @media screen and (max-width: 700px) {
-  .header{
-    padding:2rem 0;
+  .header {
+    padding: 2rem 0;
   }
   .about__container {
     & .title__container {
@@ -180,14 +199,17 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      & img {
-        max-width: 17rem;
+      & figure {
         position: relative;
+        & img {
+          max-width: 17rem;
+          position: relative;
+        }
       }
       & p {
-        width:85%;
-        &::after{
-          width:12rem;
+        width: 85%;
+        &::after {
+          width: 12rem;
         }
       }
     }
@@ -199,7 +221,7 @@
       left: 0;
       & p {
         width: 85%;
-        font-size:1.6rem;
+        font-size: 1.6rem;
       }
     }
   }

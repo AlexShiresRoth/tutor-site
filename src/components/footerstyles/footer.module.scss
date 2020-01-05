@@ -44,8 +44,10 @@
     font-size: 75%;
     & p {
       color: $brand-text;
+      font-size:1.4rem;
     }
     & a {
+      font-size:1.4rem;
       text-decoration: none;
       color: lighten($brand-blue, 15%);
     }

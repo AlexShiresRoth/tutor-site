@@ -6,10 +6,15 @@ import { convertToHtml } from "../reusablefuncs/convertToHtml"
 
 const AboutHeader = () => {
   const aboutImg = (
-    <img
-      alt="Willy Williams"
-      src="https://res.cloudinary.com/snackmanproductions/image/upload/v1577644109/tutoring-site/75380044_437957306866769_320459200855539712_n_lvvjzd.jpg"
-    ></img>
+    <figure>
+      <img
+        alt="Willy Williams"
+        src="https://res.cloudinary.com/snackmanproductions/image/upload/v1577644109/tutoring-site/75380044_437957306866769_320459200855539712_n_lvvjzd.jpg"
+      />
+      <figcaption className={aboutStyles.caption}>
+        <span>Willy Williams</span>
+      </figcaption>
+    </figure>
   )
   const aboutText = (
     <div
