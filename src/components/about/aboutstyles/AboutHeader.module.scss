@@ -154,15 +154,18 @@
   }
 }
 @media screen and (max-width: 700px) {
+  .header{
+    padding:2rem 0;
+  }
   .about__container {
     & .title__container {
       & h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
         margin-top: 2rem;
         min-width: 22rem;
       }
       & p {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
       }
     }
     & .info__container {
@@ -178,8 +181,14 @@
       align-items: center;
       justify-content: center;
       & img {
-        max-width: 14rem;
+        max-width: 17rem;
         position: relative;
+      }
+      & p {
+        width:85%;
+        &::after{
+          width:12rem;
+        }
       }
     }
     & .about__text {
@@ -189,7 +198,8 @@
       top: 0;
       left: 0;
       & p {
-        width: 80%;
+        width: 85%;
+        font-size:1.6rem;
       }
     }
   }
