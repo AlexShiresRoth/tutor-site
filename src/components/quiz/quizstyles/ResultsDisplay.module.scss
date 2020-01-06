@@ -59,3 +59,13 @@
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .results__container {
+    & .answers {
+      & .question__result {
+        width: 80%;
+      }
+    }
+  }
+}

@@ -202,6 +202,18 @@
 }
 
 @media screen and (max-width: 700px) {
+  .header {
+    padding: 4rem 0;
+    background: $brand-blue;
+    & .title__container {
+      & h1 {
+        font-family: "Tangerine", Verdana, Geneva, Tahoma, sans-serif;
+        color: $brand-brown;
+        font-size: 3.5rem;
+      }
+    }
+  }
+
   .quiz__container {
     min-width: 100vw;
     max-width: 100vw;
@@ -210,6 +222,13 @@
       max-width: 100%;
       & .question {
         min-width: 100%;
+      }
+      & .question__num {
+        flex-direction: column;
+        align-items: center;
+        & button {
+          align-self: center;
+        }
       }
     }
   }

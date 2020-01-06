@@ -44,16 +44,18 @@
     font-size: 75%;
     & p {
       color: $brand-text;
-      font-size:1.4rem;
+      font-size: 0.9rem;
+      text-align: center;
     }
     & a {
-      font-size:1.4rem;
+      font-size: 0.9rem;
       text-decoration: none;
-      color: lighten($brand-blue, 15%);
+      color: lighten($brand-blue, 25%);
     }
     & span {
       font-family: "Raleway", sans-serif;
       color: $brand-text;
+      font-size: 0.9rem;
     }
   }
   .column {
@@ -65,6 +67,7 @@
       color: $brand-text;
       border-bottom: 1px solid lighten($brand-blue, 5%);
       padding: 0.2rem 0;
+      font-size: 1.4rem;
     }
   }
 }

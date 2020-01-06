@@ -58,3 +58,34 @@
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .start__container {
+    & .quiz__rules {
+      & h2 {
+        color: lighten($brand-accent, 15%);
+        font-size: 2rem;
+        &::after {
+          content: "";
+          width: 14rem;
+          height: 0.2rem;
+        }
+      }
+      & .rules__container {
+        & .rule__row {
+          & p:nth-child(1) {
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+            background: $brand-blue;
+            font-size: 1.2rem;
+            color: lighten($brand-accent, 15%);
+          }
+          & p:not(:first-child) {
+            font-size: 1rem;
+            color: $brand-text;
+          }
+        }
+      }
+    }
+  }
+}
