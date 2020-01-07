@@ -54,7 +54,7 @@ class Header extends React.Component {
       <ul>
         <li>
           <MdDoneAll />
-          <p> Meet Online at your convenience</p>
+          <p>Meet Online at your convenience</p>
         </li>
         <li>
           <MdDoneAll />

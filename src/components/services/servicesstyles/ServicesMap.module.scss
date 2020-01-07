@@ -1,0 +1,35 @@
+@import "../../../../sass/variables";
+.services__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  & .service__container {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: $brand-text;
+    & .service__heading {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      & h3 {
+        font-family: "EB Garamond", sans-serif, serif;
+        font-weight: 300;
+        font-size: 3rem;
+      }
+      & svg {
+        font-size: 5rem;
+      }
+    }
+    &:nth-child(1) {
+      background: $brand-brown;
+    }
+    &:nth-child(2) {
+      background: darken($brand-blue, 10%);
+    }
+    &:nth-child(3) {
+      background: $brand-accent;
+    }
+  }
+}
