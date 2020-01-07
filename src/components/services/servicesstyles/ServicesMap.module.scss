@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     color: $brand-text;
+    justify-items: center;
     & .service__heading {
       display: flex;
       flex-direction: column;
@@ -22,11 +23,25 @@
         font-size: 5rem;
       }
     }
+    & .service__list{
+      display:flex;
+      flex-direction:column;
+      justify-content: center;
+      & p {
+        font-size: 1.5rem;
+      }
+    }
     &:nth-child(1) {
       background: $brand-brown;
     }
     &:nth-child(2) {
       background: darken($brand-blue, 10%);
+      & .service__list{
+          order:0;
+      }
+      & .service__heading{
+        order:1;
+      }
     }
     &:nth-child(3) {
       background: $brand-accent;
