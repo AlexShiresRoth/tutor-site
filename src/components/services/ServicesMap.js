@@ -1,38 +1,47 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { FiVideo, FiUsers } from "react-icons/fi"
-import { TiDeviceLaptop } from "react-icons/ti"
+import { services } from "./servicesArray"
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md"
+import servicesImagesQuery from "./servicesImagesQuery"
 import servicesStyles from "./servicesstyles/ServicesMap.module.scss"
+import ServicesIndexMarker from "./ServiceIndexMarker"
+//TODO debug scroll speed behavior
 const ServicesMap = () => {
-  const services = [
-    {
-      icon: <TiDeviceLaptop />,
-      service: "Virtual Tutoring",
-      list: [
-        "Meet Online at your convenience",
-        "Virtually connect with Zoom",
-        "For one hour or idk",
-      ],
-    },
-    {
-      icon: <FiVideo />,
-      service: "Video Tutoring",
-      list: [
-        "Meet Online at your convenience",
-        "Virtually connect with Zoom",
-        "For one hour or idk",
-      ],
-    },
-    {
-      icon: <FiUsers />,
-      service: "In-Person Tutoring",
-      list: ["One on One", "Meet in person", "For one hour or idk"],
-    },
-  ]
+  const serviceRef = React.createRef()
+  const animationRef = React.createRef()
+  const serviceImgs = servicesImagesQuery()
 
+  const scrollServicesUp = () => {
+    if (serviceRef.current) {
+      serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height
+      animationRef.current = requestAnimationFrame(scrollServicesUp)
+    }
+    return cancelAnimationFrame(animationRef.current)
+  }
+  const scrollServicesDown = () => {
+    if (serviceRef.current) {
+      serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height
+      animationRef.current = requestAnimationFrame(scrollServicesDown)
+    }
+    return cancelAnimationFrame(animationRef.current)
+  }
   const servicesMap = services.map((service, i) => {
     return (
-      <div className={servicesStyles.service__container}>
+      <div
+        className={servicesStyles.service__container}
+        style={{
+          background: `url(${serviceImgs[i].secure_url})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        {i > 0 && i <= services.length - 1 ? (
+          <MdKeyboardArrowUp
+            className={servicesStyles.arrow__up}
+            onClick={() => scrollServicesUp(i)}
+          />
+        ) : null}
+        <div className={servicesStyles.img__overlay}></div>
         <div className={servicesStyles.service__heading}>
           {service.icon}
           <h3>{service.service}</h3>
@@ -42,12 +51,22 @@ const ServicesMap = () => {
             <p>{item}</p>
           ))}
         </div>
+        <div className={servicesStyles.service__list__bg}></div>
+        {i >= 0 && i < services.length - 1 ? (
+          <MdKeyboardArrowDown
+            className={servicesStyles.arrow__down}
+            onClick={() => scrollServicesDown(i)}
+          />
+        ) : null}
       </div>
     )
   })
-  return <div className={servicesStyles.services__container}>{servicesMap}</div>
+  return (
+    <div className={servicesStyles.services__container} ref={serviceRef}>
+      {servicesMap}
+      <ServicesIndexMarker />
+    </div>
+  )
 }
-
-ServicesMap.propTypes = {}
 
 export default ServicesMap

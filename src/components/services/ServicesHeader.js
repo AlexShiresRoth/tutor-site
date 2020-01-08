@@ -1,8 +1,7 @@
 import React from "react"
-import PropTypes from "prop-types"
 import ServicesMap from "./ServicesMap"
 import servicesStyles from "./servicesstyles/ServicesHeader.module.scss"
-const ServicesHeader = props => {
+const ServicesHeader = () => {
   return (
     <header className={servicesStyles.header}>
       <div className={servicesStyles.title__container}>
@@ -12,7 +11,5 @@ const ServicesHeader = props => {
     </header>
   )
 }
-
-ServicesHeader.propTypes = {}
 
 export default ServicesHeader
