@@ -5,10 +5,12 @@
   flex-direction: column;
   scroll-snap-type: mandatory;
   scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 100vh;
   scroll-behavior: smooth;
+  box-shadow: 0 4px 4px darken($brand-blue, 5%);
   &::-webkit-scrollbar {
     width: 0;
     visibility: hidden;
@@ -17,6 +19,7 @@
   & .service__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap:1rem;
     color: $brand-text;
     justify-items: center;
     position: relative;
@@ -93,7 +96,7 @@
       z-index: 0;
       & .img__overlay {
         position: absolute;
-        background: rgba(177, 162, 150, 0.85);
+        background: rgba(177, 162, 150, 0.55);
       }
       & .service__heading {
         background: lighten($brand-brown, 5%);
@@ -138,7 +141,7 @@
  
       & .img__overlay {
         position: absolute;
-        background: rgba(66, 95, 117, 0.85);
+        background: rgba(66, 95, 117, 0.55);
       }
       & .service__list {
         order: 0;
@@ -181,7 +184,7 @@
      
       & .img__overlay {
         position: absolute;
-        background: rgba(115, 149, 174, 0.85);
+        background: rgba(115, 149, 174, 0.55);
       }
       & .service__heading {
         background: lighten($brand-accent, 5%);
@@ -262,7 +265,7 @@
       z-index: 2;
       & p {
         word-break: break-word;
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
     }
 
