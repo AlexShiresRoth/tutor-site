@@ -1,0 +1,74 @@
+.header {
+  padding: 4rem 0;
+  background: #557a95;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .title__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem 0;
+  -webkit-animation: fadein 0.6s linear forwards;
+          animation: fadein 0.6s linear forwards;
+}
+
+.header .title__container h1 {
+  font-family: "Tangerine", Verdana, Geneva, Tahoma, sans-serif;
+  color: #b1a296;
+  font-size: 5rem;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 20vw;
+}
+
+.header .title__container h1::before {
+  content: "";
+  width: 7rem;
+  height: 0.2rem;
+  display: block;
+  background: #7395ae;
+}
+
+.header .title__container h1::after {
+  content: "";
+  width: 7rem;
+  height: 0.2rem;
+  display: block;
+  background: #7395ae;
+}
+/*# sourceMappingURL=ServicesHeader.module.css.map */

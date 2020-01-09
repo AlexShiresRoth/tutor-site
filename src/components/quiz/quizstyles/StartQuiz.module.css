@@ -1,0 +1,110 @@
+.start__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0.5rem;
+}
+
+.start__container button {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #7395ae;
+  color: #f3f3f3;
+  border: 1px solid #7395ae;
+  width: 10rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.start__container button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 5px 5px #395264;
+          box-shadow: 0 5px 5px #395264;
+}
+
+.start__container .quiz__rules h2 {
+  color: #a3baca;
+  font-size: 3rem;
+}
+
+.start__container .quiz__rules h2::after {
+  content: "";
+  width: 14vw;
+  height: 0.1rem;
+  display: block;
+  background: #b1a296;
+  margin: 0.2rem 0;
+}
+
+.start__container .quiz__rules .rules__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.start__container .quiz__rules .rules__container .rule__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #557a95;
+}
+
+.start__container .quiz__rules .rules__container .rule__row p:nth-child(1) {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  background: #557a95;
+  font-size: 1.2rem;
+  color: #a3baca;
+}
+
+.start__container .quiz__rules .rules__container .rule__row p:not(:first-child) {
+  font-size: 1.2rem;
+  color: #f3f3f3;
+}
+
+@media screen and (max-width: 700px) {
+  .start__container .quiz__rules h2 {
+    color: #a3baca;
+    font-size: 2rem;
+  }
+  .start__container .quiz__rules h2::after {
+    content: "";
+    width: 14rem;
+    height: 0.2rem;
+  }
+  .start__container .quiz__rules .rules__container .rule__row p:nth-child(1) {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    background: #557a95;
+    font-size: 1.2rem;
+    color: #a3baca;
+  }
+  .start__container .quiz__rules .rules__container .rule__row p:not(:first-child) {
+    font-size: 1rem;
+    color: #f3f3f3;
+  }
+}
+/*# sourceMappingURL=StartQuiz.module.css.map */

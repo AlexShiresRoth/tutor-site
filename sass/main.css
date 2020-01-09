@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Raleway|Tangerine&display=swap");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 85vh;
+  background: #557a95;
+}
+
+footer {
+  min-height: 15vh;
+  background: #4c6d85;
+}
+
+a,
+h2,
+h3,
+p {
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+}
+/*# sourceMappingURL=main.css.map */

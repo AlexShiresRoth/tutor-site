@@ -1,0 +1,98 @@
+.footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  justify-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100vw;
+  padding: 1rem;
+}
+
+.footer p {
+  color: #f3f3f3;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #80a0b7;
+}
+
+.footer span {
+  font-family: "Raleway", sans-serif;
+  color: #f3f3f3;
+}
+
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.column h3 {
+  color: #f3f3f3;
+  border-bottom: 1px solid #5f87a4;
+  padding: 0.2rem 0;
+}
+
+@media screen and (max-width: 700px) {
+  .footer {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+    justify-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    width: 100vw;
+    background: #4c6d85;
+    padding: 0rem;
+    font-size: 75%;
+  }
+  .footer p {
+    color: #f3f3f3;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .footer a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #a0b8c9;
+  }
+  .footer span {
+    font-family: "Raleway", sans-serif;
+    color: #f3f3f3;
+    font-size: 0.9rem;
+  }
+  .column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .column h3 {
+    color: #f3f3f3;
+    border-bottom: 1px solid #5f87a4;
+    padding: 0.2rem 0;
+    font-size: 1.4rem;
+  }
+}
+/*# sourceMappingURL=footer.module.css.map */

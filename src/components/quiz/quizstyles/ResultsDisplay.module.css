@@ -1,0 +1,100 @@
+.results__container {
+  width: 100%;
+}
+
+.results__container .percent__display {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 1px solid #557a95;
+}
+
+.results__container .percent__display h2 {
+  color: #f3f3f3;
+  font-family: "Raleway", sans-serif, serif;
+  font-size: 3rem;
+}
+
+.results__container .answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.results__container .answers .question__result {
+  width: 60%;
+  background: #395264;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.results__container .answers .question__result .result__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #557a95;
+  width: 100%;
+}
+
+.results__container .answers .question__result .result__heading h4 {
+  color: #b1a296;
+  font-family: "Raleway", sans-serif, serif;
+  font-size: 1.8rem;
+}
+
+.results__container .answers .question__result .result__heading .correct {
+  font-size: 1.8rem;
+  color: #2ac22a;
+}
+
+.results__container .answers .question__result .result__heading .incorrect {
+  font-size: 1.8rem;
+  color: #df1c1c;
+}
+
+.results__container .answers .question__result p {
+  color: #f3f3f3;
+  font-size: 1.2rem;
+}
+
+.results__container .answers .question__result .correct {
+  color: #2ac22a;
+}
+
+.results__container .answers .question__result .incorrect {
+  color: #df1c1c;
+}
+
+@media screen and (max-width: 700px) {
+  .results__container .answers .question__result {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=ResultsDisplay.module.css.map */

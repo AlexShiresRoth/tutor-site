@@ -1,0 +1,1 @@
+export const GET_CURRENT_PAGE = "GET_CURRENT_PAGE"

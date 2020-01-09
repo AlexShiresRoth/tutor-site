@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ServicesHeader from "../components/services/ServicesHeader"
 const services = props => {
+  console.log(props)
   return (
     <Layout>
       <SEO title="Services" />
