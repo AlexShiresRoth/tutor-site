@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { services } from "./servicesArray"
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md"
 import servicesImagesQuery from "./servicesImagesQuery"
@@ -51,7 +51,6 @@ const ServicesMap = () => {
             <p>{item}</p>
           ))}
         </div>
-        <div className={servicesStyles.service__list__bg}></div>
         {i >= 0 && i < services.length - 1 ? (
           <MdKeyboardArrowDown
             className={servicesStyles.arrow__down}
