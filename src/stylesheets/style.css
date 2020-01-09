@@ -8,7 +8,8 @@ body {
 
 main {
   min-height: 85vh;
-  background: #557a95; }
+  background: #557a95;
+  scroll-snap-type: y mandatory; }
 
 footer {
   min-height: 15vh;

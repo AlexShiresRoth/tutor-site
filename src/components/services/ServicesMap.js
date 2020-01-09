@@ -1,28 +1,29 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { services } from "./servicesArray"
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md"
 import servicesImagesQuery from "./servicesImagesQuery"
 import servicesStyles from "./servicesstyles/ServicesMap.module.scss"
 import ServicesIndexMarker from "./ServiceIndexMarker"
 //TODO debug scroll speed behavior
+
 const ServicesMap = () => {
   const serviceRef = React.createRef()
-  const animationRef = React.createRef()
+  let animationRef = React.createRef()
   const serviceImgs = servicesImagesQuery()
 
   const scrollServicesUp = () => {
     if (serviceRef.current) {
       serviceRef.current.scrollTop = serviceRef.current.scrollTop -= serviceRef.current.getBoundingClientRect().height
-      animationRef.current = requestAnimationFrame(scrollServicesUp)
+      animationRef = requestAnimationFrame(scrollServicesUp)
     }
-    return cancelAnimationFrame(animationRef.current)
+    cancelAnimationFrame(animationRef)
   }
   const scrollServicesDown = () => {
     if (serviceRef.current) {
       serviceRef.current.scrollTop = serviceRef.current.scrollTop += serviceRef.current.getBoundingClientRect().height
-      animationRef.current = requestAnimationFrame(scrollServicesDown)
+      animationRef = requestAnimationFrame(scrollServicesDown)
     }
-    return cancelAnimationFrame(animationRef.current)
+    cancelAnimationFrame(animationRef)
   }
   const servicesMap = services.map((service, i) => {
     return (

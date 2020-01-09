@@ -12,6 +12,7 @@ body {
 main {
   min-height: 85vh;
   background: $brand-blue;
+  scroll-snap-type: y mandatory;
 }
 footer {
   min-height: 15vh;

@@ -19,7 +19,7 @@
   & .service__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:1rem;
+    gap: 1rem;
     color: $brand-text;
     justify-items: center;
     position: relative;
@@ -138,7 +138,7 @@
       scroll-snap-align: start;
       position: relative;
       z-index: 0;
- 
+
       & .img__overlay {
         position: absolute;
         background: rgba(66, 95, 117, 0.55);
@@ -181,7 +181,7 @@
       scroll-snap-align: start;
       position: relative;
       z-index: 0;
-     
+
       & .img__overlay {
         position: absolute;
         background: rgba(115, 149, 174, 0.55);
@@ -224,185 +224,183 @@
   }
 }
 
-@media screen and (max-width: 1400px){
-.services__container {
-
-  & .service__container {
-  
-    & .arrow__up {
-      position: absolute;
-      top: 3rem;
-      left: 50%;
-      z-index: 5;
-      font-size: 5rem;
-      color: $brand-text;
-      opacity: 0.8;
-      margin: 0;
-    }
-    & .arrow__down {
-      margin:0;
-      font-size: 5rem;
-    }
-    & .service__heading {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-      & h3 {
-        font-family: "EB Garamond", sans-serif, serif;
-        font-weight: 300;
-        font-size: 3rem;
-      }
-      & svg {
-        font-size: 7rem;
-      }
-    }
-    & .service__list {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      z-index: 2;
-      & p {
-        word-break: break-word;
-        font-size: 2rem;
-      }
-    }
-
-    &:nth-child(1) {
-      scroll-snap-align: start;
-      position: relative;
-      z-index: 0;
-     
-      & .img__overlay {
+@media screen and (max-width: 1400px) {
+  .services__container {
+    & .service__container {
+      & .arrow__up {
         position: absolute;
-        background: rgba(177, 162, 150, 0.85);
+        top: 3rem;
+        left: 50%;
+        z-index: 5;
+        font-size: 5rem;
+        color: $brand-text;
+        opacity: 0.8;
+        margin: 0;
+      }
+      & .arrow__down {
+        margin: 0;
+        font-size: 5rem;
       }
       & .service__heading {
-        background: lighten($brand-brown, 5%);
-        box-shadow: 0 2px 2px darken($brand-brown, 5%);
-        width: 120%;
-        clip-path: polygon(0% -50%, 80% 0%, 100% 100%, 0% 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
         & h3 {
-          padding: 0.3rem;
-          transition: all 0.5s ease-in-out;
-          background-image: linear-gradient(
-            180deg,
-            transparent 30%,
-            transparent 30%,
-            rgba(115, 149, 174, 0.7) 30%
-          );
-          background-size: 100% 200%;
-          background-position: 0 0;
+          font-family: "EB Garamond", sans-serif, serif;
+          font-weight: 300;
+          font-size: 3rem;
+        }
+        & svg {
+          font-size: 7rem;
+        }
+      }
+      & .service__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 2;
+        & p {
+          word-break: break-word;
+          font-size: 2rem;
+        }
+      }
 
-          &:hover {
-            cursor: pointer;
+      &:nth-child(1) {
+        scroll-snap-align: start;
+        position: relative;
+        z-index: 0;
+
+        & .img__overlay {
+          position: absolute;
+          background: rgba(177, 162, 150, 0.85);
+        }
+        & .service__heading {
+          background: lighten($brand-brown, 5%);
+          box-shadow: 0 2px 2px darken($brand-brown, 5%);
+          width: 120%;
+          clip-path: polygon(0% -50%, 80% 0%, 100% 100%, 0% 100%);
+          & h3 {
+            padding: 0.3rem;
+            transition: all 0.5s ease-in-out;
             background-image: linear-gradient(
               180deg,
               transparent 30%,
               transparent 30%,
               rgba(115, 149, 174, 0.7) 30%
             );
-            background-position: 100% 100%;
+            background-size: 100% 200%;
+            background-position: 0 0;
+
+            &:hover {
+              cursor: pointer;
+              background-image: linear-gradient(
+                180deg,
+                transparent 30%,
+                transparent 30%,
+                rgba(115, 149, 174, 0.7) 30%
+              );
+              background-position: 100% 100%;
+            }
+          }
+        }
+        & .service__list {
+          & p {
+            align-self: flex-end;
+            z-index: 2;
           }
         }
       }
-      & .service__list {
-        & p {
-          align-self: flex-end;
-          z-index: 2;
-        }
-      }
-    }
-    &:nth-child(2) {
-      scroll-snap-align: start;
-      position: relative;
-      z-index: 0;
-    
-      & .img__overlay {
-        position: absolute;
-        background: rgba(66, 95, 117, 0.85);
-      }
-      & .service__list {
-        order: 0;
-      }
-      & .service__heading {
-        order: 1;
-        background: $brand-blue;
-        box-shadow: 0 2px 2px darken($brand-blue, 5%);
-        width: 120%;
-        clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 20% 0%);
-        & h3 {
-          padding: 0.3rem;
-          transition: all 0.5s ease-in-out;
-          background-image: linear-gradient(
-            180deg,
-            transparent 30%,
-            transparent 30%,
-            rgba(177, 162, 150, 0.7) 30%
-          );
-          background-size: 100% 200%;
-          background-position: 0 0;
+      &:nth-child(2) {
+        scroll-snap-align: start;
+        position: relative;
+        z-index: 0;
 
-          &:hover {
-            cursor: pointer;
+        & .img__overlay {
+          position: absolute;
+          background: rgba(66, 95, 117, 0.85);
+        }
+        & .service__list {
+          order: 0;
+        }
+        & .service__heading {
+          order: 1;
+          background: $brand-blue;
+          box-shadow: 0 2px 2px darken($brand-blue, 5%);
+          width: 120%;
+          clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 20% 0%);
+          & h3 {
+            padding: 0.3rem;
+            transition: all 0.5s ease-in-out;
             background-image: linear-gradient(
               180deg,
               transparent 30%,
               transparent 30%,
               rgba(177, 162, 150, 0.7) 30%
             );
-            background-position: 100% 100%;
+            background-size: 100% 200%;
+            background-position: 0 0;
+
+            &:hover {
+              cursor: pointer;
+              background-image: linear-gradient(
+                180deg,
+                transparent 30%,
+                transparent 30%,
+                rgba(177, 162, 150, 0.7) 30%
+              );
+              background-position: 100% 100%;
+            }
           }
         }
       }
-    }
-    &:nth-child(3) {
-      scroll-snap-align: start;
-      position: relative;
-      z-index: 0;
-  
-      & .img__overlay {
-        position: absolute;
-        background: rgba(115, 149, 174, 0.85);
-      }
-      & .service__heading {
-        background: lighten($brand-accent, 5%);
-        box-shadow: 0 2px 2px darken($brand-accent, 5%);
-        width: 120%;
-        clip-path: polygon(0% -50%, 80% 0%, 100% 100%, 0% 100%);
-        & h3 {
-          padding: 0.3rem;
-          transition: all 0.5s ease-in-out;
-          background-image: linear-gradient(
-            180deg,
-            transparent 30%,
-            transparent 30%,
-            rgba(66, 95, 117, 0.7) 30%
-          );
-          background-size: 100% 200%;
-          background-position: 0 0;
+      &:nth-child(3) {
+        scroll-snap-align: start;
+        position: relative;
+        z-index: 0;
 
-          &:hover {
-            cursor: pointer;
+        & .img__overlay {
+          position: absolute;
+          background: rgba(115, 149, 174, 0.85);
+        }
+        & .service__heading {
+          background: lighten($brand-accent, 5%);
+          box-shadow: 0 2px 2px darken($brand-accent, 5%);
+          width: 120%;
+          clip-path: polygon(0% -50%, 80% 0%, 100% 100%, 0% 100%);
+          & h3 {
+            padding: 0.3rem;
+            transition: all 0.5s ease-in-out;
             background-image: linear-gradient(
               180deg,
               transparent 30%,
               transparent 30%,
               rgba(66, 95, 117, 0.7) 30%
             );
-            background-position: 100% 100%;
+            background-size: 100% 200%;
+            background-position: 0 0;
+
+            &:hover {
+              cursor: pointer;
+              background-image: linear-gradient(
+                180deg,
+                transparent 30%,
+                transparent 30%,
+                rgba(66, 95, 117, 0.7) 30%
+              );
+              background-position: 100% 100%;
+            }
           }
         }
-      }
-      & .service__list {
-        & p {
-          align-self: flex-end;
+        & .service__list {
+          & p {
+            align-self: flex-end;
+          }
         }
       }
     }
   }
-}
 }
 @keyframes scaleupanddown {
   0% {

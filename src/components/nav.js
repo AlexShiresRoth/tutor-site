@@ -120,10 +120,22 @@ class Nav extends React.Component {
           </Link>
         </div>
         <div className={navStyles.nav__right}>
-          <Link to="/about/">About</Link>
-          <Link to="/services/">Services</Link>
-          <Link to="/quiz/">Quiz</Link>
-          <Link to="/resources/">Resources</Link>
+          <Link to="/" activeClassName={navStyles.active}>
+            Home
+          </Link>
+
+          <Link to="/about/" activeClassName={navStyles.active}>
+            About
+          </Link>
+          <Link to="/services/" activeClassName={navStyles.active}>
+            Services
+          </Link>
+          <Link to="/quiz/" activeClassName={navStyles.active}>
+            Quiz
+          </Link>
+          <Link to="/resources/" activeClassName={navStyles.active}>
+            Resources
+          </Link>
         </div>
       </nav>
     )
