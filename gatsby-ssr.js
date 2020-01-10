@@ -3,7 +3,3 @@
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
-
-// You can delete this file if you're not using it
-import wrapWithProvider from "./wrap-with-provider"
-export const wrapRootElement = wrapWithProvider

@@ -29,6 +29,14 @@
   "devDependencies": {
     "prettier": "^1.19.1"
   },
+  "peerDependencies": {
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0"
+  },
+  "alias": {
+		"react": "./node_modules/react",
+		"react-dom": "./node_modules/react-dom"
+	},
   "keywords": [
     "gatsby"
   ],
